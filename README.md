@@ -9,7 +9,7 @@ Course Intructor: Prof. Balaraman Ravindran \
 Author: Nandhakishore C S
 
 To run code, create a virtual environment: \
-**$ python3 -m venv venv_name** \ 
+**$ python3 -m venv venv_name** 
 
 Activate the virtual environment: \
 **$ source venv_name/bin/source** 
