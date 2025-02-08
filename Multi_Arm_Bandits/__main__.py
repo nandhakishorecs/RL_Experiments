@@ -21,7 +21,7 @@ if __name__ == '__main__':
     env = Environment(
         arm_type = 'gaussian', 
         n_arms = 10, 
-        mean_reward_range = (-1, 1), 
+        mean_reward_range = (-3, 3), 
         std_dev = 1.0, 
         n_samples = 2_000
     )
@@ -44,7 +44,8 @@ if __name__ == '__main__':
     df_melted = df.melt(var_name = 'Action', value_name = 'Reward Distribution') 
 
     plt.figure(figsize=(8, 6))
-    sns.violinplot(x='Action', y='Reward Distribution', data = df_melted, inner = 'box', palette = 'grey')
+    sns.violinplot(x = 'Action', y = 'Reward Distribution', data = df_melted, inner = 'box', palette = 'grey')
+    plt.axhline(y = (env._reward_range[1] + env._reward_range[0])/2, color = "black", linestyle = "dashed", linewidth = 2) 
     plt.title(f'{env._n_arms} - Arm Test Bed')
     plt.show()
 
