@@ -15,6 +15,10 @@ class SoftmaxPolicy(BasePolicy):
     def policyName_(self) -> str: 
         return f'Softmax Policy: (Tau = {self._tau})'
     
+    @property
+    def __name__(self) -> str: 
+        return 'Softmax Policy'
+    
     def reset_arms(self):
         self._Q = {id: 0 for id in self._arm_IDs}
         self._n_triggers_arm = {id: 0 for id in self._arm_IDs}

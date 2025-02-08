@@ -17,6 +17,10 @@ class UpperConfidenceBond(BasePolicy):
     def policyName_(self) -> str: 
         return f'Upper Confidence Bound (UCB): c = {self._c}'
 
+    @property
+    def __name__(self) -> str: 
+        return 'UCB Policy'
+
     def reset_arms(self) -> None:
         self._total_reward = {id: 0 for id in self._arm_IDs}
         self._n_triggers_arm = {id: 0 for id in self._arm_IDs}

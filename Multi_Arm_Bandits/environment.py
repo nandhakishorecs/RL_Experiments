@@ -69,6 +69,7 @@ class Environment:
             plt.ylabel('Reward Distribution')
             plt.xlabel('Desnity')
         ax.legend(loc = 'lower right')
-        plt.grid() 
+        plt.grid()
+        plt.savefig('Arm_reward_distribution.png', dpi = 100) 
         plt.show()
         return rewards

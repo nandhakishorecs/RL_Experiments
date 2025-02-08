@@ -15,6 +15,10 @@ class EpsilonGreedyPolicy(BasePolicy):
     def policyName_(self) -> str: 
         return f'Epsilon Greedy (Epsilon:{self._epsilon})'
     
+    @property
+    def __name__(self) -> str: 
+        return 'Epsilon Greedy Policy'
+    
     def reset_arms(self) -> None:
         self._Q = {id: 0 for id in self._arm_IDs}
         self._n_triggers_arm = {id: 0 for id in self._arm_IDs}

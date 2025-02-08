@@ -65,9 +65,9 @@ if __name__ == '__main__':
     # Softmax Policy 
     explore_softmax_taus =  [0.001, 1.0, 5.0, 50.0]
     softmax_polices = [SoftmaxPolicy(tau, env.Arms) for tau in explore_softmax_taus]
-    plot_reward_regret(env, softmax_polices, time_steps=200, n_runs=500)
+    plot_reward_regret(env, softmax_polices, time_steps = 200, n_runs = 500)
 
     # UCB 
     explore_c_UCBs =  [0.0001, 0.001, 0.01, 1]
     UCB_polices = [UpperConfidenceBond(env.Arms, c) for c in explore_c_UCBs]
-    plot_reward_regret(env, UCB_polices , time_steps=200, n_runs=500)
+    plot_reward_regret(env, UCB_polices , time_steps = 200, n_runs = 500)

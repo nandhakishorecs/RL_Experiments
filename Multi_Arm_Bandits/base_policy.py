@@ -15,3 +15,7 @@ class BasePolicy:
     @property 
     def policyName_(self) -> str: 
         return 'Base Policy'
+    
+    @property
+    def __name__(self) -> str: 
+        return 'Base Policy'

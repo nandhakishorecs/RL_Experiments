@@ -12,6 +12,10 @@ class RandomPolicy(BasePolicy):
     def policyName_(self) -> str: 
         return f'Random Policy'
     
+    @property
+    def __name__(self) -> str: 
+        return 'Random Policy'
+    
     def reset_arms(self):
         ''' no reseting of arms in random policy '''
         pass

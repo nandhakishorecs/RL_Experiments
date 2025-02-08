@@ -26,9 +26,10 @@ def get_average_over_runs(env: Environment, policy: BasePolicy, time_steps: int,
 
     return average_policy_reward, total_policy_regret
 
-def plot_reward_regret(env: Environment, policies: BasePolicy, time_steps = 200, n_runs = 500): 
+def plot_reward_regret(env: Environment, policies: BasePolicy, time_steps = 200, n_runs = 500):
     _, ax = plt.subplots(1, 1, sharex = False, sharey = False, figsize = (10, 6))
     for policy in policies: 
+        filename = policy.__name__
         average_policy_reward, total_policy_regret  = get_average_over_runs(env, policy, time_steps, n_runs)
         print('Regret for {}:\t {:.3f}'.format(policy.policyName_, total_policy_regret))
         ax.plot(np.arange(time_steps), average_policy_reward, '-', label = policy.policyName_)
@@ -42,6 +43,7 @@ def plot_reward_regret(env: Environment, policies: BasePolicy, time_steps = 200,
     plt.xlabel('Time Steps')
     plt.ylabel('Rewards')   
     plt.title(f'{env._n_arms} - Arm Test Bed')
-
     plt.legend(loc='lower right')
+    filename += '.png'
+    plt.savefig(filename, dpi = 100)
     plt.show() 
