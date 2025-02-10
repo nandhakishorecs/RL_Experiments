@@ -36,6 +36,8 @@ class Environment:
 
     def _create_arms(self) -> dict: 
         low_reward, high_reward = self._reward_range
+        # sampling the initial rewards from a uniform distribution and then simulating uniform as a gaussian 
+        # this can be directly done from gaussian as well - # yet to implement 
         means = np.random.uniform(
             low = low_reward, 
             high = high_reward, 
