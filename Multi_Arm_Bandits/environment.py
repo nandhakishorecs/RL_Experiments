@@ -3,15 +3,26 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 class Arm: 
-    __slots__ = '_mean', '_std_dev', '_type'
+    __slots__ = '_mean', '_std_dev', '_type', '_n', '_p'
     def __init__(self, type: str = 'normal', p1: float = None, p2: float = None):
         if(type == 'gaussian' or type == 'normal'): 
             self._type = type
             self._mean = p1 
             self._std_dev = p2 
+            self._p = self._n = None
+        # Yet to test
+        # elif(type == 'binomial'): 
+        #     self._type = type
+        #     self._n = int(p1) 
+        #     if(p2 <= 1 and p2 >= 0): 
+        #         self._p = p2
+        #     else: 
+        #         raise ValueError('\nProbability parameter for Bionomial Distribution cannot be more than 1 or less than 0\n')
+        #     self._mean = self._std_dev = None
         elif(type == 'exponential'): 
             self._type = type
             self._mean = self._std_dev = p1
+            self._p = self._n = None
 
 class Environment: 
     __slots__ = '_n_arms', '_reward_range', '_std_dev', '_arms', '_arm_type', '_n_samples'
@@ -38,6 +49,9 @@ class Environment:
         if(self._arm_type == 'gaussian' or self._arm_type == 'normal'): 
             # print('ARM',choosen_arm._mean, choosen_arm._std_dev) - test code
             return np.random.normal(choosen_arm._mean, choosen_arm._std_dev)
+        # Yet to test
+        # elif(self._arm_type == 'binomial'): 
+        #     return np.random.binomial(choosen_arm._n, choosen_arm._p, size = 100)
         elif(self._arm_type == 'exponential'): 
             # print('ARM',choosen_arm._mean, choosen_arm._std_dev) - test code
             # scale parameter is 1/mean for exponential distribution 
