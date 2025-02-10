@@ -47,27 +47,28 @@ if __name__ == '__main__':
     sns.violinplot(x = 'Action', y = 'Reward Distribution', data = df_melted, inner = 'box', palette = 'grey')
     plt.axhline(y = (env._reward_range[1] + env._reward_range[0])/2, color = "black", linestyle = "dashed", linewidth = 2) 
     plt.title(f'{env._n_arms} - Arm Test Bed')
+    plt.savefig(f'Violin Plot - Reward distribution for {env._n_arms} - arm test bed')
     plt.show()
 
-    # Random Policy 
-    random_policy = RandomPolicy(env.Arms)
-    plot_reward_regret(env, [random_policy], time_steps = 200, n_runs = 500)
+    # # Random Policy 
+    # random_policy = RandomPolicy(env.Arms)
+    # plot_reward_regret(env, [random_policy], time_steps = 200, n_runs = 500)
     
-    # Greedy Policy
-    greedy_policy = GreedyPolicy(env.Arms)
-    plot_reward_regret(env, [greedy_policy], time_steps = 200, n_runs = 500)
+    # # Greedy Policy
+    # greedy_policy = GreedyPolicy(env.Arms)
+    # plot_reward_regret(env, [greedy_policy], time_steps = 200, n_runs = 500)
 
-    # Epsilon Greedy Policy 
-    explore_epgreedy_epsilons =  [0.001, 0.01, 0.5, 0.9]
-    e_greedy_policies = [EpsilonGreedyPolicy(ep, env.Arms) for ep in explore_epgreedy_epsilons]
-    plot_reward_regret(env, e_greedy_policies, time_steps = 200, n_runs = 500)
+    # # Epsilon Greedy Policy 
+    # explore_epgreedy_epsilons =  [0.001, 0.01, 0.5, 0.9]
+    # e_greedy_policies = [EpsilonGreedyPolicy(ep, env.Arms) for ep in explore_epgreedy_epsilons]
+    # plot_reward_regret(env, e_greedy_policies, time_steps = 200, n_runs = 500)
 
-    # Softmax Policy 
-    explore_softmax_taus =  [0.001, 1.0, 5.0, 50.0]
-    softmax_polices = [SoftmaxPolicy(tau, env.Arms) for tau in explore_softmax_taus]
-    plot_reward_regret(env, softmax_polices, time_steps = 200, n_runs = 500)
+    # # Softmax Policy 
+    # explore_softmax_taus =  [0.001, 1.0, 5.0, 50.0]
+    # softmax_polices = [SoftmaxPolicy(tau, env.Arms) for tau in explore_softmax_taus]
+    # plot_reward_regret(env, softmax_polices, time_steps = 200, n_runs = 500)
 
-    # UCB 
-    explore_c_UCBs =  [0.0001, 0.001, 0.01, 1]
-    UCB_polices = [UpperConfidenceBond(env.Arms, c) for c in explore_c_UCBs]
-    plot_reward_regret(env, UCB_polices , time_steps = 200, n_runs = 500)
+    # # UCB 
+    # explore_c_UCBs =  [0.0001, 0.001, 0.01, 1]
+    # UCB_polices = [UpperConfidenceBond(env.Arms, c) for c in explore_c_UCBs]
+    # plot_reward_regret(env, UCB_polices , time_steps = 200, n_runs = 500)
