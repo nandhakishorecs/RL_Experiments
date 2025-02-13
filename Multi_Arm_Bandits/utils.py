@@ -42,7 +42,7 @@ def plot_reward_regret(env: Environment, policies: BasePolicy, time_steps = 200,
     ax.plot(np.arange(time_steps), [average_arm_reward] * time_steps, 'r-')
     plt.xlabel('Time Steps')
     plt.ylabel('Rewards')   
-    plt.title(f'{env._n_arms} - Arm Test Bed')
+    plt.title(f'{env._n_arms} - Arm Test Bed using {filename}')
     plt.legend(loc='lower right')
     filename += '.png'
     plt.savefig(filename, dpi = 100)

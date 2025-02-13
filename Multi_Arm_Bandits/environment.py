@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import math 
 
 class Arm: 
     __slots__ = '_mean', '_std_dev', '_type', '_n', '_p'
@@ -18,7 +19,8 @@ class Arm:
         #         self._p = p2
         #     else: 
         #         raise ValueError('\nProbability parameter for Bionomial Distribution cannot be more than 1 or less than 0\n')
-        #     self._mean = self._std_dev = None
+        #     self._mean = self._p * self._n
+        #     self._std_dev = math.sqrt(self._n * self._p * (1-self._p))
         elif(type == 'exponential'): 
             self._type = type
             self._mean = self._std_dev = p1

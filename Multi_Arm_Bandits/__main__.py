@@ -19,9 +19,9 @@ from .utils import *
 
 if __name__ == '__main__': 
     env = Environment(
-        arm_type = 'gaussian', 
-        n_arms = 10, 
-        mean_reward_range = (-3, 3), 
+        arm_type = 'normal', 
+        n_arms = 5, 
+        mean_reward_range = (0, 6), 
         std_dev = 1.0, 
         n_samples = 2_000
 
